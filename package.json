@@ -1,0 +1,13 @@
+
+  {
+    "name": "barhopper",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd BarHopper.client && npm i",
+      "setup:server": "cd BarHopper && npm i",
+      "start": "node BarHopper/index.js"
+    }
+  }
+  
