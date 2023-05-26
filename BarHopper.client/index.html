@@ -17,54 +17,37 @@
 
 <body>
   <!-- SECTION -->
-  <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
-      <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">BarHopper.client</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <!-- NAVLINKS -->
-          <a href="#/about" class="nav-link">About</a>
-        </div>
-      </div>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
-    </nav>
-  </header>
+  <header class="container-fluid">
 
-  <!-- SECTION -->
-  <main>
+    <nav class="row nav-container">
 
-    <!-- <section id="auth-template">
-      <div class="container-fluid">
-        <div class="row my-3">
-          <div class="col-lg-5" id="auth-settings">
-            <div class="card p-2 skeleton-loader">
-              <div class="card-title p-2">
-                <div class="d-flex align-items-center">
-                  <div class="skeleton-loader avatar"></div>
-                  <div class="skeleton-loader text mx-2"></div>
-                </div>
-              </div>
-              <div class="card-body border-top">
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-              </div>
-            </div>
+      <div class="col-2">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <!-- NAVLINKS -->
+            <!-- <a href="#/about" class="nav-link">About</a> -->
           </div>
         </div>
       </div>
-    </section> -->
 
+      <div class="col-8 logo"><img src="assets/img/logo_black.svg"></div>
+
+      <div class="col-2 login">
+        <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- SECTION -->
+  <main class="container-fluid">
     <section id="router-view">
       <!-- primary viewport -->
+    </section>
+
+    <section>
+
     </section>
 
 
@@ -72,10 +55,47 @@
 
   <!-- SECTION -->
   <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
-    </div>
+    <section class="row">
+      <div class="col-12 modal-add-container">
+
+        <div class="bottom-img-container"><img src="assets/img/logo_sm.svg" alt="BarHopper"></div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="create-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Create Bar
+        </button>
+
+      </div>
+    </section>
   </footer>
+
+
+  <!-- Modal -->
+  <div id="addBarHTM">
+    <!-- STUB The modal to add a bar-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Create Bar</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+
+
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.22/auth0-spa-js.production.js"></script>
