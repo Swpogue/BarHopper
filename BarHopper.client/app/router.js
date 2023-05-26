@@ -1,4 +1,5 @@
 import { AboutController } from "./controllers/AboutController.js";
+import { BarsController } from "./controllers/BarsController.js";
 import { HomeController } from "./controllers/HomeController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
 import { AboutView } from "./views/AboutView.js";
@@ -8,15 +9,15 @@ import { AboutView } from "./views/AboutView.js";
  * @type {Route[]}
  */
 export const router = [
+  // {
+  //   path: '',
+  //   controller: HomeController,
+  //   view: ''
+  // },
   {
     path: '',
-    controller: HomeController,
+    controller: [BarsController],
     view: ''
-  },
-  {
-    path: '#/about',
-    controller: [AboutController, ValuesController],
-    view: AboutView
   }
 ]
 
