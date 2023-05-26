@@ -10,6 +10,7 @@ export const BarSchema = new Schema({
   activities: { type: Array, required: true },
   theme: { type: String, required: true },
   barHopperId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
+  
   // creatorId: {type: Schema.Types.ObjectId, required: true}
 
 },
