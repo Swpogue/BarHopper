@@ -4,6 +4,14 @@ import { BadRequest, Forbidden } from "../utils/Errors.js";
 
 
 class BarsService {
+  async deleteBar(barId, userId) {
+    const bar = await this.getBarById(barId)
+    if(bar.barHopperId != userId){
+      throw new Forbidden("You are not drunk enough to delete this")
+    }
+    await bar.remove()
+    return
+  }
   async editBar(barData, barId, userId) {
     const originalBar = await this.getBarById(barId)
     if (originalBar.barHopperId != userId){
@@ -19,7 +27,7 @@ class BarsService {
     await originalBar.save()
     return originalBar
   }
-  
+
   async getBars(query) {
     const bars = await dbContext.Bars.find(query)
       .populate('barHopper', 'name picture')
