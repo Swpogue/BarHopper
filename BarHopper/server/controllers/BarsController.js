@@ -12,7 +12,30 @@ constructor(){
   .get('/:barId/hoppers', this.getHoppersByBarId)
   .use(Auth0Provider.getAuthorizedUserInfo)
   .post('', this.createBar)
+  .put('/:barId', this.editBar)
+  .delete('/:barId', this.deleteBar)
 }
+  async deleteBar(req, res, next) {
+    try {
+      const barId = req.params.barId
+      const userId = req. userInfo.id
+      await barsService.deleteBar(barId, userId)
+      return res.send('Bar at ${barId} was blacked out')
+    } catch (error) {
+      next(error)
+    }
+  }
+  async editBar(req,res,next) {
+    try {
+      const barData = req.body
+      const barId = req.params.barId
+      const userId = req.userInfo.id
+      const editedBar = await barsService.editBar(barData, barId, userId)
+      res.send(editedBar)
+    } catch (error) {
+      next(error)
+    }
+  }
   
  
  async getBars(req, res, next) {
