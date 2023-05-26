@@ -8,9 +8,16 @@ export const CommentSchema = new Schema ({
 {timestamps: true, toJSON: { virtuals: true }}
 )
 
-CommentSchema.virtual('comment', {
-  ref: 'Bar',
-  localField: 'commentId',
+CommentSchema.virtual('bar', {
+  localField: 'barId',
+  foreignField: '_id',
   justOne: true,
-  foreignField: '_id'
+  ref: 'Bar'
+})
+
+CommentSchema.virtual('hopper', {
+  localField: 'hopperId',
+  foreignField: '_id',
+  justOne: true, 
+  ref: 'Account'
 })
