@@ -9,9 +9,20 @@ export class CommentsController extends BaseController{
     this.router
     .get('', this.getComments)
     .get('/:commentId', this.getCommentById)
+    .get('/bar/:barId', this.getCommentByBarId)
     .use(Auth0Provider.getAuthorizedUserInfo)
     .post('', this.createComment)
     .delete('/:commentId', this.deleteComment)
+  }
+
+  async getCommentByBarId(req, res, next){
+    try {
+      const barId = req.params.barId
+      const comments = await commentsService.getCommentsByBarId(barId)
+      return res.send(comments)
+    } catch (error) {
+      next(error)
+    }
   }
   async getComments(req, res, next) {
     try {
