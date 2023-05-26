@@ -5,6 +5,9 @@ export const BarSchema = new Schema({
   name: { type: String, required: true, minLength: 3, maxLength: 20 },
   description: { type: String, default: '', maxLength: 500 },
   img: { type: String, required: true, maxLength: 500 },
+  favoriteColor: {type: String, required: true},
+  activities: {type: String, enum: ['Karaoke', 'Dancing', 'Pool', 'Darts', 'Cornhole', 'Arcades'], required: true},
+  theme: {type: String}
   barHopperId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
 
 },
