@@ -39,8 +39,8 @@ export class Bar {
               </div>
 
               <div class="make-bar-input">
-                <label for="address">Address</label>
-                <input name="address" type="text">
+                <label for="theme">Bar Theme</label>
+                <input name="theme" type="text">
               </div>
 
               <div class="activities-box">
@@ -93,7 +93,16 @@ export class Bar {
 
   get BarTemplate() {
     return /*html*/ `
-    <div>${this.name}</div>
+
+     <div onclick="app.BarsController.SetActive()" class="col-md-4">
+        <div class="card">
+        <img src="${this.logo}" alt="">
+          <h3>${this.name}</h3>
+        </div>
+      </div>
+
     `
   }
+
+
 }
