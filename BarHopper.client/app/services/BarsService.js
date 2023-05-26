@@ -1,12 +1,40 @@
 import { AppState } from "../AppState.js"
 import { Bar } from "../models/Bar.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { api } from "./AxiosService.js"
 
 class BarsService {
+  async createBar(formData) {
+    console.log(formData);
+
+    // This takes in the checkboxes and pushes them into an array
+    let activities = []
+    if (formData.karaoke == 'on') { activities.push('karaoke') }
+    if (formData.dance == 'on') { activities.push('dance') }
+    if (formData.pool == 'on') { activities.push('pool') }
+    if (formData.darts == 'on') { activities.push('darts') }
+    if (formData.cornhole == 'on') { activities.push('cornhole') }
+    if (formData.arcades == 'on') { activities.push('arcades') }
+
+    let name = formData.name
+    let img = formData.img
+    let favoriteColor = formData.favoriteColor
+    let address = formData.address
+
+    let postData = { name, img, favoriteColor, address, activities }
+
+    console.log('the assembled object is', postData)
+
+    const res = await api.post('api/bars', postData)
+    console.log(res.data)
+
+  }
+
   async getBars() {
     const res = await api.get('api/bars')
-    console.log(res.data, 'this is res.data')
+    // console.log(res.data, 'this is res.data')
     AppState.bars = res.data.map(b => new Bar(b))
+    // console.log(AppState.bars)
     AppState.emit('bars')
   }
 
