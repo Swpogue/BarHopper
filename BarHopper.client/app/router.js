@@ -1,5 +1,6 @@
 import { AboutController } from "./controllers/AboutController.js";
 import { BarsController } from "./controllers/BarsController.js";
+import { CommentsController } from "./controllers/CommentsController.js";
 import { HomeController } from "./controllers/HomeController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
 import { AboutView } from "./views/AboutView.js";
@@ -16,7 +17,7 @@ export const router = [
   // },
   {
     path: '',
-    controller: [BarsController],
+    controller: [BarsController, CommentsController],
     view: ''
   }
 ]

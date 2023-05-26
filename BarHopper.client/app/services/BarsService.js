@@ -19,14 +19,16 @@ class BarsService {
     let name = formData.name
     let img = formData.img
     let favoriteColor = formData.favoriteColor
-    let address = formData.address
+    let theme = formData.theme
 
-    let postData = { name, img, favoriteColor, address, activities }
+    let postData = { name, img, favoriteColor, theme, activities }
 
     console.log('the assembled object is', postData)
 
     const res = await api.post('api/bars', postData)
     console.log(res.data)
+    AppState.bars.push(new Bar(res.data))
+    AppState.emit('bars')
 
   }
 

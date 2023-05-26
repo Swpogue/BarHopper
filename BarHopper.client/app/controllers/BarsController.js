@@ -17,6 +17,7 @@ function _drawBarForm() {
   setHTML('addBarHTM', template)
 }
 
+
 export class BarsController {
   constructor() {
     // console.log('bars contrller online')
@@ -46,5 +47,11 @@ export class BarsController {
       Pop.error(error)
     }
   }
+
+  setActive() {
+    console.log("opening bar and comments");
+  }
+
+
 
 }
