@@ -4,7 +4,7 @@ import { Pop } from "../utils/Pop.js"
 
 export class CommentsController {
   constructor() {
-    AppState.on('Account', this.getComments)
+    AppState.on('account', this.getComments)
     // this.getComments()
   }
 
