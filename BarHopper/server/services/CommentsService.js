@@ -2,10 +2,16 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class CommentsService {
+  async getCommentsByBarId(barId) {
+    const comments = await dbContext.Comments.find({barId})
+    return comments
+  }
+
   async getComments(query) {
     const comments = await dbContext.Comments.find(query)
     return comments
   }
+
   async deleteComment(commentId, userId) {
     const comment = await this.getCommentById(commentId)
     if (comment.hopperId != userId){
@@ -14,6 +20,7 @@ class CommentsService {
     await comment.remove()
     return
   }
+
   async getCommentById(commentId) {
     const comment = await dbContext.Comments.findById(commentId)
     if (!comment) {
