@@ -16,6 +16,8 @@ class ObservableAppState extends EventEmitter {
 
   bars = []
 
+  comments = []
+
   // Used to load initial data
   init() {
 

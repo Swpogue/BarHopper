@@ -1,5 +1,6 @@
 export class Bar {
   constructor(data) {
+    // this.barId =
     this.name = data.name || ''
     this.description = data.description || ''
     this.logo = data.img || ''
@@ -94,7 +95,7 @@ export class Bar {
   get BarTemplate() {
     return /*html*/ `
 
-     <div onclick="app.BarsController.SetActive()" class="col-md-4">
+     <div onclick="app.BarsController.SetActive(${this.id})" class="col-md-4">
         <div class="card">
         <img src="${this.logo}" alt="">
           <h3>${this.name}</h3>

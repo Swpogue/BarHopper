@@ -50,6 +50,7 @@ export class BarsController {
 
   setActive() {
     console.log("opening bar and comments");
+
   }
 
 
