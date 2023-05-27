@@ -18,4 +18,4 @@ HopperSchema.virtual('hopper', {
 
 })
 
-HopperSchema.index({ hopperId: 1, bardId: 1 }, { unique: true })
+HopperSchema.index({ hopperId: 1, barId: 1 }, { unique: true })
