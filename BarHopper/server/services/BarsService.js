@@ -1,5 +1,6 @@
 import { dbContext } from "../db/DbContext.js";
 import { BadRequest, Forbidden } from "../utils/Errors.js";
+import { commentsService } from "./CommentsService.js";
 
 
 
@@ -10,6 +11,7 @@ class BarsService {
       throw new Forbidden("You are not drunk enough to delete this")
     }
     await bar.remove()
+    await commentsService.cascadeDeleteComments(barId)
     return
   }
 
