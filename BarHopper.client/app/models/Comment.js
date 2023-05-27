@@ -5,7 +5,7 @@ export class Comment {
     this.barId = data.barId
   }
 
-  get CommentsTemplate() {
+  get CommentTemplate() {
     return /*html*/ `
     <div>
     ${this.description}
