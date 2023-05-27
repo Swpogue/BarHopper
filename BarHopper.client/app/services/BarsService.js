@@ -4,6 +4,12 @@ import { getFormData } from "../utils/FormHandler.js"
 import { api } from "./AxiosService.js"
 
 class BarsService {
+  setActive(barId) {
+    const bar = AppState.bars.find(b => b.id == barId)
+    AppState.activeBar = bar
+    console.log(bar);
+  }
+
   async createBar(formData) {
     console.log(formData);
 

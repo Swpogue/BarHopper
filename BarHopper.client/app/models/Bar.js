@@ -1,6 +1,6 @@
 export class Bar {
   constructor(data) {
-    // this.barId =
+    this.id = data.id
     this.name = data.name || ''
     this.description = data.description || ''
     this.logo = data.img || ''
@@ -11,10 +11,8 @@ export class Bar {
   }
 
   static CreateBarTemplate() {
-    // TODO make bar template
-    return /*html*/`
-    <!-- STUB The modal to add a bar-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    return /*html*/ `
+    <div class="modal fade" id="createBarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -95,13 +93,34 @@ export class Bar {
   get BarTemplate() {
     return /*html*/ `
 
-     <div onclick="app.BarsController.SetActive(${this.id})" class="col-md-4">
-        <div class="card">
-        <img src="${this.logo}" alt="">
+     <div class="col-md-4" >
+<a href="#bar" onclick="app.BarsController.setActive('${this.id}')">
+      <div class="barcard-container">
+
+        <div class="card barcard">
+
+          <img src="${this.logo}" alt="">
+
           <h3>${this.name}</h3>
+
         </div>
+
+        <div class="barcard-shadow" style="background-color: ${this.favColor};"></div>
+
+      </div>
+</a>
       </div>
 
+    `
+  }
+
+  get ActiveBarTemplate() {
+    return /*html*/ `
+    <div class="active-bar-container">
+      <img src="${this.logo}">
+      <div class="active-bar-favcolor" style="background-color: ${this.favColor};"></div>
+    </div>
+    
     `
   }
 

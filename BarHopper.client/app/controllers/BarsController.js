@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js"
 import { Bar } from "../models/Bar.js"
 import { barsService } from "../services/BarsService.js"
+import { commentsService } from "../services/CommentsService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
@@ -13,7 +14,7 @@ function _drawBars() {
 }
 
 function _drawBarForm() {
-  let template = Bar.CreateBarTemplate
+  let template = Bar.CreateBarTemplate()
   setHTML('addBarHTM', template)
 }
 
@@ -22,6 +23,7 @@ export class BarsController {
   constructor() {
     // console.log('bars contrller online')
     this.getBars()
+    // console.log('bars');
     _drawBarForm()
     AppState.on('bars', _drawBars)
   }
@@ -48,10 +50,17 @@ export class BarsController {
     }
   }
 
-  setActive() {
-    console.log("opening bar and comments");
-
+  setActive(barId) {
+    console.log('setting active:', barId);
+    try {
+      barsService.setActive(barId)
+    } catch (error) {
+      Pop.error(error)
+    }
   }
+
+
+
 
 
 

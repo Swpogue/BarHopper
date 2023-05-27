@@ -23,7 +23,11 @@ footer section {
   align-items: center;
 }
 
-.nav-container .logo img {
+.nav-container .logo a {
+  height: 100%;
+}
+
+.nav-container .logo a img {
   height: 100%;
 }
 
@@ -50,4 +54,23 @@ footer section {
 
 .bottom-img-container img {
   height: 100%;
+}
+
+.barcard-container {
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
+
+.barcard-shadow {
+  height: 100%;
+  width: 100%;
+}
+
+.comment-container {
+  width: 90%;
+  padding: 1rem;
+  border: solid black 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

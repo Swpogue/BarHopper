@@ -30,7 +30,11 @@
         </div>
       </div>
 
-      <div class="col-8 logo"><img src="assets/img/logo_black.svg"></div>
+      <div class="col-8 logo">
+        <a href="#">
+          <img src="assets/img/logo_black.svg">
+        </a>
+      </div>
 
       <div class="col-2 login">
         <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -40,49 +44,15 @@
 
   </header>
 
-  <!-- SECTION -->
-  <main class="container-fluid">
-    <section id="router-view">
-      <!-- primary viewport -->
+  <div id="router-view"> </div>
 
-    </section>
-
-    <section id="barsHTM" class="row ">
-
-      <!-- <div class="col-md-4">
-        <div class="card">
-          <h3>${this.name}</h3>
-          <img src="${this.img}" alt="">
-        </div>
-      </div> -->
-
-    </section>
-    <section>
-      <div id="comments">
-
-      </div>
-    </section>
-
-
-  </main>
-
-  <!-- SECTION -->
-  <footer class="bg-dark text-light">
-    <section class="row">
-      <div class="col-12 modal-add-container">
-
-        <div class="bottom-img-container"><img src="assets/img/logo_sm.svg" alt="BarHopper"></div>
-
-        <!-- Button trigger modal -->
-        <button type="button" class="create-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Create Bar
-        </button>
-
-      </div>
-    </section>
-  </footer>
-
-
+  <div class="col-12">
+    <form onsubmit="app.CommentsController.createComment()">
+      <label for="description">New Comment</label>
+      <input type="text" name="description" alt="New Comment">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 
 
   <!-- Modal -->

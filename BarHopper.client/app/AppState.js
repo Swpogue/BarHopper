@@ -18,6 +18,10 @@ class ObservableAppState extends EventEmitter {
 
   comments = []
 
+  /** @type {import('./models/Bar.js').Bar | null} */
+
+  activeBar = null
+
   // Used to load initial data
   init() {
 
