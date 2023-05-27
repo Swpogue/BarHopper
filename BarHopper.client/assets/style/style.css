@@ -66,3 +66,11 @@ footer section {
   height: 100%;
   width: 100%;
 }
+
+.comment-container {
+  width: 90%;
+  padding: 1rem;
+  border: solid black 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

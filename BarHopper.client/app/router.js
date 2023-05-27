@@ -3,7 +3,6 @@ import { ActiveBarController } from "./controllers/ActiveBarController.js";
 import { BarsController } from "./controllers/BarsController.js";
 import { CommentsController } from "./controllers/CommentsController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
-import { AboutView } from "./views/AboutView.js";
 import { BarView } from "./views/BarVeiw.js";
 import { HomeView } from "./views/HomeView.js";
 
