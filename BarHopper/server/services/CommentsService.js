@@ -2,6 +2,11 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class CommentsService {
+  async cascadeDeleteComments(barId) {
+    const comments = await dbContext.Comments.find({barId})
+    comments.forEach(async c => await c.remove())
+    return
+  }
   async getCommentsByBarId(barId) {
     const comments = await dbContext.Comments.find({barId})
     return comments
