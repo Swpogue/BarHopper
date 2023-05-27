@@ -31,7 +31,7 @@ class CommentsService {
 
   async createComment(commentData) {
     const newComment = await dbContext.Comments.create(commentData)
-    await newComment.populate('bar', 'name picture')
+    await newComment.populate('bar', 'name img')
     await newComment.populate('hopper', 'name picture')
     return newComment
   }
