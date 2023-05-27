@@ -9,6 +9,7 @@ class CommentsService {
   }
   async getCommentsByBarId(barId) {
     const comments = await dbContext.Comments.find({barId})
+    .populate('hopper', "name picture")    
     return comments
   }
 
