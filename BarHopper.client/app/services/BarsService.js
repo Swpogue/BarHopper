@@ -29,10 +29,10 @@ class BarsService {
 
     let postData = { name, img, favoriteColor, theme, activities }
 
-    console.log('the assembled object is', postData)
+    // console.log('the assembled object is', postData)
 
     const res = await api.post('api/bars', postData)
-    console.log(res.data)
+    // console.log(res.data)
     AppState.bars.push(new Bar(res.data))
     AppState.emit('bars')
 

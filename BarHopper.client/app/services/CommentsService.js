@@ -3,6 +3,12 @@ import { api } from "./AxiosService.js"
 import { Comment } from "../models/Comment.js"
 
 class CommentsService {
+  async deleteCommentById(id) {
+    const res = await api.delete(`api/comments/${id}`)
+    console.log(res.data);
+    AppState.comments = AppState.comments.filter(c => c.id != id)
+    AppState.emit('comments')
+  }
   async createComment(formData) {
 
     let barId = AppState.activeBar?.id
@@ -10,9 +16,13 @@ class CommentsService {
     let hopperId = AppState.account?.id
 
     let post = { barId, description, hopperId }
-    console.log(post);
+
+    // console.log(post);
     const res = await api.post('api/comments', post)
-    console.log(res.data);
+    AppState.comments.push(new Comment(res.data))
+    AppState.emit('comments')
+
+    // console.log(res.data);
 
   }
   getCommentsForActiveBar() {
@@ -26,7 +36,7 @@ class CommentsService {
     let id = AppState.activeBar?.id
     // console.log(id);
     const res = await api.get(`api/comments/bar/${id}`)
-    // console.log(res.data);
+    console.log(res.data);
     AppState.comments = res.data.map(c => new Comment(c))
     AppState.emit('comments')
     // console.log(AppState.comments);

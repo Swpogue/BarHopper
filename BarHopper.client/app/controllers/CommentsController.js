@@ -13,6 +13,7 @@ function _drawComments() {
     template = 'No Comments'
   }
   setHTML('commentsHTM', template)
+  // console.log(AppState.comments);
 }
 
 function _drawCommentForm() {
@@ -22,9 +23,10 @@ function _drawCommentForm() {
 
 export class CommentsController {
   constructor() {
-    AppState.on('comments', _drawComments)
     this.getCommentsByBarId()
     _drawCommentForm()
+    AppState.on('comments', _drawComments)
+    AppState.on('account', _drawComments)
   }
 
   async getCommentsByBarId() {
@@ -45,6 +47,17 @@ export class CommentsController {
       const formData = getFormData(form)
       console.log('creating comment', formData)
       await commentsService.createComment(formData)
+
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
+  async deleteCommentById(id) {
+    try {
+      if (await Pop.confirm('You Sure')) {
+        await commentsService.deleteCommentById(id)
+      }
     } catch (error) {
       Pop.error(error)
     }
