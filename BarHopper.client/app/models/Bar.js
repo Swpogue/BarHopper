@@ -95,23 +95,28 @@ export class Bar {
   get BarTemplate() {
     return /*html*/ `
 
-     <div class="col-md-4" >
-<a href="#bar" onclick="app.BarsController.setActive('${this.id}')">
+    <div class="col-md-4 col-12 align-content-center justify-content-center d-flex" >
+
       <div class="barcard-container">
 
-        <div class="card barcard">
-
-          <img src="${this.logo}" alt="">
-
+        <div class="barcard">
+          <a href="#bar" onclick="app.BarsController.setActive('${this.id}')" class="barcard-link">
+            <img src="${this.logo}" alt="">
+          </a>
+          <div class="d-flex flex-row justify-content-between">
+            <div>
+              <h3>${this.name}</h3>
+            </div> 
+            ${this.computeDelete}
+          </div>  
         </div>
 
-        <div class="barcard-shadow" style="background-color: ${this.favColor};"></div>
+        <div class="barcard-shadow" style="background-color: ${this.favColor};">
+        </div>
 
       </div>
-</a>          <h3>${this.name}</h3>
 
-          ${this.computeDelete}
-      </div>
+    </div>
 
     `
   }
