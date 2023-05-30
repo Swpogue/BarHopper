@@ -10,7 +10,7 @@ function _drawBars() {
   let template = ''
   AppState.bars.forEach(b => { template += b.BarTemplate })
 
-  setHTML('barsHTM', template)
+  setHTML('barsHTM', template) 
 }
 
 function _drawBarForm() {
