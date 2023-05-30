@@ -62,17 +62,16 @@ footer section {
 
 .barcard-container {
   cursor: pointer;
-  height: auto;
-  width: 80%;
+  width: 85%;
+  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 1.3rem;
 }
 
 .barcard-container:hover .barcard-shadow{
   margin-top: 13%;
-  height: 90%;
   margin-right: -3%;
 }
 
@@ -82,13 +81,29 @@ footer section {
 }
 
 .barcard {
-    width: 94%;
+    width: 92%;
+    height: 92%;
     z-index: 10;
     background-color: white;
     border-radius: 0.15rem;
     overflow: hidden;
     margin-bottom: 7%;
     transition: all 200ms ease-in-out;
+}
+
+.barcard .delete {
+  z-index: 15;
+  height: 2.7rem;
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  margin-top: -89%;
+  color: white;
+  box-shadow: 0.1rem 0.1rem 0.65rem 0.02rem #00000066;
+  margin-left: 3%;
+  padding: 0.5rem;
+  aspect-ratio: 1/1;
+  background-color: red;
 }
 
 .barcard-shadow {
@@ -103,12 +118,15 @@ footer section {
   box-shadow: 0.15rem 0.15rem 2rem #4848481c;
 }
 
-.barcard-link{
+.barcard-link {
   width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
 }
 
 .barcard-link img{
-  width: 100%;
+  height: 100%;
 }
 
 .comment-container {

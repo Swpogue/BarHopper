@@ -101,14 +101,9 @@ export class Bar {
 
         <div class="barcard">
           <a href="#bar" onclick="app.BarsController.setActive('${this.id}')" class="barcard-link">
-            <img src="${this.logo}" alt="">
+            <img src="${this.logo}" alt="${this.name}">
           </a>
-          <div class="d-flex flex-row justify-content-between">
-            <div>
-              <h3>${this.name}</h3>
-            </div> 
-            ${this.computeDelete}
-          </div>  
+          ${this.computeDelete} 
         </div>
 
         <div class="barcard-shadow" style="background-color: ${this.favColor};">
