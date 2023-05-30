@@ -6,13 +6,14 @@ export class Comment {
     this.description = data.description
     this.hopperId = data.hopperId
     this.barId = data.barId
+    this.userImg = data.hopper.picture
   }
 
   get CommentTemplate() {
     return /*html*/ `
     <div class="col-12 d-flex justify-content-center align-items-center">
       <div class="comment-container">
-        <div></div>
+        <img src="${this.userImg}">
         <div class="content">
           ${this.description}
         </div>

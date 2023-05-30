@@ -48,6 +48,9 @@ export class CommentsController {
       console.log('creating comment', formData)
       await commentsService.createComment(formData)
 
+      // @ts-ignore
+      form.reset()
+
     } catch (error) {
       Pop.error(error)
     }

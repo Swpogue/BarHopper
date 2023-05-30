@@ -4,6 +4,11 @@ import { getFormData } from "../utils/FormHandler.js"
 import { api } from "./AxiosService.js"
 
 class BarsService {
+  async deleteBarById(id) {
+    const res = await api.delete(`api/bars/${id}`)
+    AppState.bars = AppState.bars.filter(b => b.id != id)
+    AppState.emit('bars')
+  }
   setActive(barId) {
     const bar = AppState.bars.find(b => b.id == barId)
     AppState.activeBar = bar

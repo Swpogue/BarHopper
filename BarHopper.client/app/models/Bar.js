@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Bar {
   constructor(data) {
     this.id = data.id
@@ -101,14 +103,14 @@ export class Bar {
 
           <img src="${this.logo}" alt="">
 
-          <h3>${this.name}</h3>
-
         </div>
 
         <div class="barcard-shadow" style="background-color: ${this.favColor};"></div>
 
       </div>
-</a>
+</a>          <h3>${this.name}</h3>
+
+          ${this.computeDelete}
       </div>
 
     `
@@ -123,6 +125,17 @@ export class Bar {
     
     `
   }
+
+  get computeDelete() {
+    if (this.barHopperId == AppState.account?.id) {
+      return /*html*/`
+      <div class="delete"><i class="mdi mdi-delete" onclick="app.BarsController.deleteBarById('${this.id}')"></i></div>
+      `
+    } else {
+      return '<div></div>'
+    }
+  }
+
 
 
 }

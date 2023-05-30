@@ -26,6 +26,7 @@ export class BarsController {
     // console.log('bars');
     _drawBarForm()
     AppState.on('bars', _drawBars)
+    AppState.on('account', _drawBars)
   }
   async getBars() {
     try {
@@ -45,6 +46,16 @@ export class BarsController {
       const formData = getFormData(form)
       console.log('creating bar', formData)
       await barsService.createBar(formData)
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
+  async deleteBarById(id) {
+    try {
+      if (await Pop.confirm('Are you sure you want to delete this bar?')) {
+        await barsService.deleteBarById(id)
+      }
     } catch (error) {
       Pop.error(error)
     }
