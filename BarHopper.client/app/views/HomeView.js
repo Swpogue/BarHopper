@@ -17,12 +17,17 @@ export const HomeView = /*html*/ `
     <section class="row">
       <div class="col-12 modal-add-container">
 
-        <div class="bottom-img-container"><img src="assets/img/logo_sm.svg" alt="BarHopper"></div>
-
+        <div class="bottom-img-container">
+          <img src="assets/img/logo_sm.svg" alt="BarHopper">
+        </div>
+        
+        <div class="create-bar-container">
+          <button type="button" class="create-bar" data-bs-toggle="modal" data-bs-target="#createBarModal">
+            Create Bar
+          </button>
+        </div>
         <!-- Button trigger modal -->
-        <button type="button" class="create-bar" data-bs-toggle="modal" data-bs-target="#createBarModal">
-          Create Bar
-        </button>
+        
 
       </div>
     </section>

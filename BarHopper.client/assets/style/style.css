@@ -131,24 +131,52 @@ footer section {
   height: 100%;
 }
 
+.create-bar-container{
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .create-bar{
   display: block;
   border: 0;
   height: 5rem;
   aspect-ratio: 8/3;
+  z-index: 10;
+  position: relative;
+  background-color: #00F0FF;
+  transition: all 200ms ease-in-out;
 }
 
-.comment-container {
-  width: 90%;
-  padding: 1rem;
-  border: solid black 0.25rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.create-bar::before {
+  content: 'Create Bar';
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  border: 0;
+  height: 5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 0.15rem;
+  aspect-ratio: 8/3;
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: -2.5rem;
+  margin-left: -1rem;
+  transition: all 200ms ease-in-out;
 }
+
+.create-bar:hover{
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+.create-bar:hover::before{
+  margin-top: -2.7rem;
+  margin-left: -1.2rem;
+}
+
 
 .active-bar-container {
   width: 100%;
@@ -180,4 +208,39 @@ footer section {
 
 .active-bar-container .img-container img{
   width: 100%;
+}
+
+.comment-container {
+  width: 90%;
+  padding: 1rem;
+  border: solid black 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-comment {
+  width: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ececec;
+  border: 0.25rem solid black;
+}
+
+.new-comment input {
+  border: 0.5rem solid white;
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.comment-sticky{
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

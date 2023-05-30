@@ -36,13 +36,13 @@ export class Comment {
 
   static CreateCommentTemplate() {
     return /*html*/ `
-      <div class="col-12">
-    <form onsubmit="app.CommentsController.createComment()">
-      <label for="description">New Comment</label>
-      <input type="text" name="description" alt="New Comment">
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+      <div class="col-12 d-flex justify-content-center align-items-center comment-sticky">
+        <form onsubmit="app.CommentsController.createComment()" class="new-comment">
+          <label for="description">New Comment</label>
+          <input type="text" name="description" alt="New Comment">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     `
   }
 
