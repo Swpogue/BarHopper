@@ -119,7 +119,9 @@ export class Bar {
   get ActiveBarTemplate() {
     return /*html*/ `
     <div class="active-bar-container">
-      <img src="${this.logo}">
+      <div class="img-container">
+        <img src="${this.logo}"> 
+      </div>
       <div class="active-bar-favcolor" style="background-color: ${this.favColor};"></div>
     </div>
     
